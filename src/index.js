@@ -1,10 +1,10 @@
 import _ from 'lodash';
+import Code from './lib/Code'
 
 (function () {
     'use strict';
 
-    var Code,
-        value_library = {
+    var value_library = {
             basic: [
                 {id:0},
                 {id:1},
@@ -18,49 +18,6 @@ import _ from 'lodash';
                 {id:9},
             ]
         };
-
-    Code = function () {
-        this.values = [];
-        this.attempts = [];
-    };
-
-    Code.prototype = {
-        setValues: function (c) {
-            this.values = c;
-        },
-        addValue:function (v) {
-            this.values.push(v);
-        },
-        crack: function(guess) {
-            var instance = this,
-                values_counts = _.countBy(this.values, 'id'),
-                guess_counts = _.countBy(guess, 'id'),
-                common_values = _.intersection(_.keys(values_counts), _.keys(guess_counts)),
-                matches = _.filter(guess, function(value, index){
-                    return value.id === instance.values[index].id;
-                }).length,
-                contains = _.reduce(common_values, function (sum, id){
-                    var addend = values_counts[id] <= guess_counts[id]
-                        ? values_counts[id]
-                        : guess_counts[id];
-
-                    return sum + addend;
-                }, 0),
-                results = {
-                    matches: matches,
-                    contains: contains - matches,
-                    solved: (matches === this.values.length)
-                };
-
-            this.attempts.push({
-                values: guess,
-                evaluation: results
-            });
-
-            return results;
-        }
-    };
-
 
     (function () {
         var code = new Code();
