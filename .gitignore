@@ -1,0 +1,25 @@
+#
+# build outputs (dist)
+#
+# We'll want to adjust this to avoid needing to maintain it once we've settled
+# on a dist structure
+#
+dist
+
+#
+# vendor modules
+#
+node_modules
+
+
+#
+# tool logs
+#
+yarn-error.log
+
+
+#
+# OS meta
+#
+.DS_Store
+
