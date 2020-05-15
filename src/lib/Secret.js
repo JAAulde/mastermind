@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Code from './Code';
 import Guess from './Guess';
 
