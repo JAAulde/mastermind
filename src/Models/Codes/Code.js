@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Value from './Value';
+import Value from '../Value';
 
 export default class Code {
     constructor(values) {

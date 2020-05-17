@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import Guess from './lib/Guess';
-import Secret from './lib/Secret';
-import Value from './lib/Value';
+import Guess from './Models/Codes/Guess';
+import Secret from './Models/Codes/Secret';
+import Value from './Models/Value';
 
 (function () {
     'use strict';
